@@ -119,6 +119,7 @@ def redrawWindow(surface):
     pygame.display.update()
 
 def randomSnack(rows, item):
+    global rows
     positions = item.body
  
     while True:
@@ -136,11 +137,13 @@ def message_box(subject, content):
     pass
 
 def main():
-    global width, rows
+    global width, rows, s
     width = 500
     rows = 20
     win = pygame.display.set_mode((width, width))
     s = snake((255,0,0), (10,10))
+    snack = cube(randomSnack(rows, s), color=(0,255,0))
+
     flag = True
     clock = pygame.time.Clock()
     while flag:
