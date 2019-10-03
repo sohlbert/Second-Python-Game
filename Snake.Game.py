@@ -1,6 +1,6 @@
 #Making Snake in Pygame
 
-class cube(oject):
+class cube(object):
     rows = 0
     w = 0
     def __init___(self, start, dirnx=1, dirny=0, color=(255,0,0)):
@@ -11,8 +11,14 @@ class cube(oject):
         pass
 
 class snake(object):
+    body = []
+    turns = {}
+
     def __init__(self, color, pos):
-        pass
+        self.color = color
+        self.head = cube(pos)
+        self.body.append(self.head)
+
     def move(self):
         pass
     def reset(self, pos):
@@ -23,12 +29,22 @@ class snake(object):
         pass
 
 def drawGrid(w, rows, surface):
-    
+    sizeBtwn = w // rows
+
+    x = 0
+    y = 0
+    for l in range(rows):
+        x = x +sizeBtwn
+        y = y + sizeBtwn
+
+        pygame.draw.line(surface, (255,255,255), (x,0), (x,w))
+        pygame.draw.line(surface, (255,255,255), (0,y), (x,y))
+
 
 def redrawWindow(surface):
     global rows, width
     win.fill((0,0,0))
-    drawGrid(surface)
+    drawGrid(width, rows, surface)
     pygame.display.update()
 def randomSnack(rows, items):
     pass
