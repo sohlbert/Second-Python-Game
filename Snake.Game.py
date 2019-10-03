@@ -195,7 +195,10 @@ def main():
         for x in range(len(s.body)):
             if s.body[x].pos in list(map(lambda z:z.pos,s.body[x+1:])):
                 print('Score: ', len(s.body))
-                message_box('GAME OVER', ('Your Score:' len(s.body)))
+                message_box('GAME OVER', 'GAME OVER')
+                message_box('GAME OVER', 'YOUR SCORE WAS: ')
+                message_box('GAME OVER', len(s.body))
+
                 s.reset((10,10))
                 break
  
